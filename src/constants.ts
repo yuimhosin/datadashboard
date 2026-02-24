@@ -2,7 +2,7 @@ export interface DataSource {
   id: string;
   name: string;
   provider: string;
-  category: 'Trade' | 'Economy' | 'Demographics' | 'Health' | 'Geospatial';
+  category: '貿易' | '經濟' | '人口' | '健康' | '地理';
   description: string;
   url: string;
   qualityScore: number;
@@ -19,37 +19,37 @@ export interface CompliancePath {
 export const DATA_SOURCES: DataSource[] = [
   {
     id: 'un-comtrade',
-    name: 'UN Comtrade',
-    provider: 'United Nations',
-    category: 'Trade',
-    description: 'The gold standard for global trade analysis with over 1 billion records.',
+    name: 'UN Comtrade (聯合國商品貿易數據庫)',
+    provider: '聯合國',
+    category: '貿易',
+    description: '全球商品貿易分析的黃金標準，擁有超過 10 億條記錄。',
     url: 'https://comtrade.un.org/',
     qualityScore: 98,
   },
   {
     id: 'wb-open-data',
-    name: 'World Bank Open Data',
-    provider: 'World Bank',
-    category: 'Economy',
-    description: 'Long-term series data covering education, health, environment, and infrastructure.',
+    name: '世界銀行開放數據',
+    provider: '世界銀行',
+    category: '經濟',
+    description: '涵蓋教育、健康、環境和基礎設施的長期序列數據。',
     url: 'https://data.worldbank.org/',
     qualityScore: 95,
   },
   {
     id: 'imf-data',
-    name: 'IMF Data',
-    provider: 'International Monetary Fund',
-    category: 'Economy',
-    description: 'Macroeconomic data with high transparency and international comparability.',
+    name: 'IMF 數據',
+    provider: '國際貨幣基金組織',
+    category: '經濟',
+    description: '具有高透明度和國際可比性的宏觀經濟數據。',
     url: 'https://www.imf.org/en/Data',
     qualityScore: 96,
   },
   {
     id: 'un-population',
-    name: 'UN Population Division',
-    provider: 'United Nations',
-    category: 'Demographics',
-    description: 'Detailed fertility, mortality, and migration data for social policy research.',
+    name: '聯合國人口司',
+    provider: '聯合國',
+    category: '人口',
+    description: '用於社會政策研究的詳細生育率、死亡率和遷移數據。',
     url: 'https://population.un.org/wpp/',
     qualityScore: 94,
   },
@@ -58,30 +58,30 @@ export const DATA_SOURCES: DataSource[] = [
 export const COMPLIANCE_PATHS: CompliancePath[] = [
   {
     id: 'important-data',
-    type: 'Important Data',
-    threshold: 'Any amount',
-    requirement: 'Security Assessment',
-    description: 'Must report for security assessment. Defined by relevant authorities.',
+    type: '重要數據',
+    threshold: '任何數量',
+    requirement: '安全評估',
+    description: '必須申報安全評估。由相關部門定義。',
   },
   {
     id: 'sensitive-personal',
-    type: 'Sensitive Personal Info',
-    threshold: '>= 10,000 people',
-    requirement: 'Security Assessment',
-    description: 'Requires full security assessment if threshold met.',
+    type: '敏感個人信息',
+    threshold: '>= 10,000 人',
+    requirement: '安全評估',
+    description: '如果達到閾值，需要進行全面的安全評估。',
   },
   {
     id: 'standard-personal',
-    type: 'Personal Info',
-    threshold: '100k - 1M people',
-    requirement: 'Standard Contract',
-    description: 'Sign standard contract or obtain certification.',
+    type: '個人信息',
+    threshold: '10萬 - 100萬人',
+    requirement: '標準合同',
+    description: '簽署標準合同或獲得認證。',
   },
   {
     id: 'exempt-personal',
-    type: 'Personal Info',
-    threshold: '< 100,000 people',
-    requirement: 'Exempt',
-    description: 'Exempt from security assessment and standard contracts for non-CIIO.',
+    type: '個人信息',
+    threshold: '< 100,000 人',
+    requirement: '豁免',
+    description: '非關鍵信息基礎設施運營者（非CIIO）豁免安全評估和標準合同。',
   },
 ];
